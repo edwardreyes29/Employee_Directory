@@ -130,12 +130,12 @@ class EmployeeList extends Component {
   }
 }
 
-// Employee.propTypes = {
-//   name: PropTypes.string,
-//   image: PropTypes.string,
-//   phone: PropTypes.string,
-//   email: PropTypes.string,
-//   DOB: PropTypes.string,
-// }
+Employee.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string,
+  phone: PropTypes.string,
+  email: PropTypes.string,
+  DOB: PropTypes.string,
+}
 
 export default EmployeeList;
