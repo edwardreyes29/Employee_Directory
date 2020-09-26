@@ -45,4 +45,4 @@ Working with state changes and setting onChange functions to external input comp
 ### Search by phone
 ![phone](./assets/search-phone.png)
 ### Search by DOB
-![dob](./assets/serach-dob.png)
+![dob](./assets/search-dob.png)
