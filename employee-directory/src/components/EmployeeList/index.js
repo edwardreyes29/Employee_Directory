@@ -66,13 +66,29 @@ class EmployeeList extends Component {
                 style = styles.oddColor;
               }
 
+              // Convert birthday to proper format
+              let dateConvert = new Date(employee.dob.date)
+              let month = dateConvert.getMonth();
+              if (parseInt(month) === 0) {
+                month = 12
+              }
+              let day = dateConvert.getDay();
+              if (parseInt(day) === 0) {
+                day = 1;
+              }
+              let DOB = month + '/' + day + '/' + dateConvert.getFullYear()
+
               // Check if search state contains any input data
               if (this.state.search.length) {
                 // Check if the current employee name contains the employee name in input
-                let name = `${employee.name.first} ${employee.name.last}`.toLowerCase()
-
+                const name = `${employee.name.first} ${employee.name.last}`.toLowerCase();
+                
                 // If it does, then render the employee to the list
-                if (name.includes(this.state.search.toLowerCase())) {
+                if (name.includes(this.state.search.toLowerCase()) || // Search by name
+                  employee.phone.includes(this.state.search) || // Search by phone
+                  employee.email.toLowerCase().includes(this.state.search) || // Search by email
+                  DOB.includes(this.state.search) // Search by dob
+                ) {
                   return (
                     <div 
                       className="row border-top border-bottom d-flex justify-content-around align-items-center text-center"
@@ -84,7 +100,7 @@ class EmployeeList extends Component {
                         image={employee.picture.medium}
                         phone={employee.phone}
                         email={employee.email}
-                        DOB={employee.dob.date}
+                        DOB={DOB}
                       />
                     </div>
                   )
@@ -101,7 +117,7 @@ class EmployeeList extends Component {
                       image={employee.picture.medium}
                       phone={employee.phone}
                       email={employee.email}
-                      DOB={employee.dob.date}
+                      DOB={DOB}
                     />
                   </div>
                 )

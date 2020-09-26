@@ -7,9 +7,6 @@ export const Employee = ({
   email,
   DOB,
 }) => {
-  // console.log(typeof new Date(DOB))
-  let dateConvert = new Date(DOB)
-  let birthday = dateConvert.getMonth() + '/' + dateConvert.getDay() + '/' + dateConvert.getFullYear()
   return (
     <>
       <div className="col">
@@ -25,7 +22,7 @@ export const Employee = ({
         <a href="#" className="m-2">{email}</a>
       </div>
       <div className="col text-center">
-        {birthday}
+        {DOB}
       </div>
     </>
   )
